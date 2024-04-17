@@ -12,7 +12,8 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/RptDefectAnalysis/details?fromDate=2022-07-21&&toDate=2022-07-23",
+      //"launchUrl": "api/RptDefectAnalysis/details?fromDate=2022-07-21&&toDate=2022-07-23",
+      "launchUrl": "api/MasterInternalAudit",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

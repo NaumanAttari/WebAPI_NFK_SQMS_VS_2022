@@ -16,7 +16,7 @@ namespace WebAPI_NFK_SQMS.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
-    public class MasterInternalAuditController : Controller
+    public class MasterInternalAuditController : ControllerBase
     {
         private readonly ApplicationDBContext _context;
 
@@ -27,9 +27,8 @@ namespace WebAPI_NFK_SQMS.Controllers
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<tblSQMS_Master_Internal_Audit>>> GetMasterInternalAudit()
-        {
-            var ab = "s";
-            return await _context.tblSQMS_Master_Internal_Audit.OrderBy(x => x.Sort).ToListAsync();
+        { 
+            return await _context.tblSQMS_Master_Internal_Audit.OrderBy(x => x.Sorting).ToListAsync();
         }
 
 

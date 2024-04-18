@@ -77,6 +77,7 @@ namespace WebAPI_NFK_SQMS.DB_Context
         public DbSet<tblSQMS_Master_Style_Layout> tblSQMS_Master_Style_Layout { get; set; }
 
         public DbSet<tblSQMS_Master_Internal_Audit> tblSQMS_Master_Internal_Audit { get; set; }
+        public DbSet<tblSQMS_Master_Audits> tblSQMS_Master_Audits { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

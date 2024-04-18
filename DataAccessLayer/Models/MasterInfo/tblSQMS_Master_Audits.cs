@@ -6,19 +6,13 @@ using System.Text;
 
 namespace DataAccessLayer.Models.MasterInfo
 {
-    public class tblSQMS_Master_Internal_Audit
+    public class tblSQMS_Master_Audits
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public long Id { get; set; }
+        public string Audits { get; set; }
 
         
-        public string Section { get; set; }
-
-        public string Descriptions { get; set; }
-
-        public int Sorting { get; set; }
-
-         
     }
 }

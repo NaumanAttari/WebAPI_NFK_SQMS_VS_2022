@@ -15,7 +15,7 @@ namespace WebAPI_NFK_SQMS.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
-    public class MachineOptController : ControllerBase
+    public class MachineOptController : Controller
     {
         private readonly ApplicationDBContext _context;
 

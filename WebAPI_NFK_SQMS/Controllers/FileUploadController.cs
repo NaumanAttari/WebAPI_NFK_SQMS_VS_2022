@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using System;
+using System.Threading.Tasks;
 
 namespace WebAPI_NFK_SQMS.Controllers
 {
@@ -23,6 +24,7 @@ namespace WebAPI_NFK_SQMS.Controllers
             {
                 //Directory.GetCurrentDirectory()
                 string path = Path.Combine("E:", "faultimages", file.FileName);
+                //string path = Path.Combine("D:", "faultimages", file.FileName);             
 
                 using (Stream stream = new FileStream(path, FileMode.Create))
                 {
@@ -35,5 +37,28 @@ namespace WebAPI_NFK_SQMS.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+
+
+        [HttpPost("UploadSpecImages")]
+        public ActionResult UploadSpecImages([FromForm] FileModel file)
+        {
+            try
+            {
+                //Directory.GetCurrentDirectory()
+                string path = Path.Combine("E:", "specimages", file.FileName);
+                //string path = Path.Combine("D:", "specimages", file.FileName);
+
+                using (Stream stream = new FileStream(path, FileMode.Create))
+                {
+                    file.FormFile.CopyTo(stream);
+                }
+                return Ok(path);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
     }
 }

@@ -33,6 +33,9 @@ namespace WebAPI_NFK_SQMS.DB_Context
         public DbQuery<vw_Style_Master_with_layout> vw_Style_Master_with_layout { get; set; }
         public DbQuery<vw_Offline_for_FinalAudit> vw_Offline_for_FinalAudit { get; set; }
         
+
+
+        public DbSet<tblSQMS_Audit_Spec_Images> tblSQMS_Audit_Spec_Images { get; set; }
         public DbSet<tblSQMS_Master_AQL_Lot_Size> tblSQMS_Master_AQL_Lot_Size { get; set; }
         public DbSet<tblSQMS_FinalCheck_Info> tblSQMS_FinalCheck_Info { get; set; }
         public DbSet<tblSQMS_FinalCheck_Defects> tblSQMS_FinalCheck_Defects { get; set; }

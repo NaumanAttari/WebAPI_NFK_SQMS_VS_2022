@@ -12,6 +12,7 @@ namespace DataAccessLayer.Models.Transactions
         public long Id { get; set; }
         public long MasterId { get; set; }
         public string Floor { get; set; }
+        public string ProdLineNo { get; set; }
         public string QCCardNo { get; set; }
         public string QCName { get; set; }
         public string OrderID { get; set; }
@@ -25,6 +26,8 @@ namespace DataAccessLayer.Models.Transactions
         public string MinorPcs { get; set; }
         public string MajorPcs { get; set; }
         public string FaultImageLink { get; set; }
+        public string InternalAuditSection { get; set; }
+        public string MasterAudit { get; set; }
 
     }
 }

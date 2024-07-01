@@ -4,22 +4,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace DataAccessLayer.Models.MasterInfo
+namespace DataAccessLayer.Models.Transactions
 {
-    public class tblSQMS_Master_Internal_Audit
+    public class tblSQMS_Audit_Spec_Images
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public long Id { get; set; }
+        public long MasterId { get; set; }
+        public string SpecImageLink { get; set; }
 
-        
-        public string Section { get; set; }
-
-        public string Descriptions { get; set; }
-
-        public int Sorting { get; set; }
-        public bool IsLine { get; set; }
-
-         
     }
 }

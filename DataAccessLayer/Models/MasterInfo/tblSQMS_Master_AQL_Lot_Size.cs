@@ -19,12 +19,20 @@ namespace DataAccessLayer.Models.MasterInfo
 
         public long Qty { get; set; }
 
-        public string AQL_A_Major { get; set; }
-        public string AQL_A_Minor { get; set; }
-        public string AQL_B_Major { get; set; }
-        public string AQL_B_Minor { get; set; }
-        public string AQL_C_Major { get; set; }
-        public string AQL_C_Minor { get; set; }
+        public string AQL_0_40_Major { get; set; }
+        public string AQL_0_40_Minor { get; set; }
+        public string AQL_0_065_Major { get; set; }
+        public string AQL_0_065_Minor { get; set; }
+        public string AQL_0_65_Major { get; set; }
+        public string AQL_0_65_Minor { get; set; }
+        public string AQL_1_0_Major { get; set; }
+        public string AQL_1_0_Minor { get; set; }
+        public string AQL_1_5_Major { get; set; }
+        public string AQL_1_5_Minor { get; set; }
+        public string AQL_2_5_Major { get; set; }
+        public string AQL_2_5_Minor { get; set; }
+        public string AQL_4_0_Major { get; set; }
+        public string AQL_4_0_Minor { get; set; }
 
     }
 }

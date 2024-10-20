@@ -25,12 +25,21 @@ namespace WebAPI_NFK_SQMS.Controllers
         }
 
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<vw_QC_Active_Round_Info>>> GetQCActiveRoundDet()
+        //[HttpGet("GetAll")]
+        //public async Task<ActionResult<IEnumerable<vw_QC_Active_Round_Info>>> GetQCActiveRoundDet()
+        //{
+        //    return await _context.vw_QC_Active_Round_Info.ToListAsync();
+        //}
+
+        //[HttpGet("GetWithId")]
+
+        [HttpGet("{QcCardNo}/{WorkerCardNo}")]
+        public async Task<ActionResult<IEnumerable<vw_QC_Active_Round_Info>>> GetQCActiveRoundDetWithId(string QcCardNo, string WorkerCardNo)
         {
-            return await _context.vw_QC_Active_Round_Info.ToListAsync();
+            return await _context.vw_QC_Active_Round_Info.Where(a => a.QCCardNo == QcCardNo && a.CardNo == WorkerCardNo).ToListAsync();
         }
 
 
     }
 }
+

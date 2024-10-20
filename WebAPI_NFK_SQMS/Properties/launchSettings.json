@@ -13,7 +13,9 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       //"launchUrl": "api/RptDefectAnalysis/details?fromDate=2022-07-21&&toDate=2022-07-23",
-      "launchUrl": "api/MasterInternalAudit",
+      "launchUrl": "api/FinalAuditStatusForTrafficLights/GetFinalAuditStatus?Floor=2nd Floor&&fromTime=14:01&&toTime=14:59",
+      //"launchUrl": "api/FinalAuditStatusForTrafficLights/details?fromDate=2022-07-21&&toDate=2022-07-23",
+      //"launchUrl": "api/MasterInternalAudit",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DataAccessLayer.Models.TrafficLights;
+using System.Reflection.Emit;
 
 
 namespace WebAPI_NFK_SQMS.DB_Context
@@ -32,6 +34,7 @@ namespace WebAPI_NFK_SQMS.DB_Context
 
         public DbQuery<vw_Style_Master_with_layout> vw_Style_Master_with_layout { get; set; }
         public DbQuery<vw_Offline_for_FinalAudit> vw_Offline_for_FinalAudit { get; set; }
+        public DbQuery<vw_Final_Audit_Status_For_Traffic_Lights> vw_Final_Audit_Status_For_Traffic_Lights { get; set; }
         
 
 
@@ -81,9 +84,13 @@ namespace WebAPI_NFK_SQMS.DB_Context
 
         public DbSet<tblSQMS_Master_Internal_Audit> tblSQMS_Master_Internal_Audit { get; set; }
         public DbSet<tblSQMS_Master_Audits> tblSQMS_Master_Audits { get; set; }
+        public DbSet<FinalAuditStatusForTrafficLights> FinalAuditStatusForTrafficLights { get; set; }
+        public DbSet<FinalAuditNextRun> FinalAuditNextRun { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<FinalAuditNextRun>().HasNoKey();
             base.OnModelCreating(builder);
         }
 

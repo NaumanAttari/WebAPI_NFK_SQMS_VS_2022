@@ -31,11 +31,11 @@ namespace WebAPI_NFK_SQMS.Controllers
 
 
 
-        [HttpGet("GetFinalAuditStatus")]
-        public async Task<ActionResult<IEnumerable<FinalAuditStatusForTrafficLights>>> FinalAuditStatusForTrafficLights(string Floor,string fromTime, string toTime)
-        {
-            return await _context.FinalAuditStatusForTrafficLights.FromSqlRaw("Select * from fn_AuditStatus_for_Traffic_Lights('" +  Floor + "','" + fromTime + "','" + toTime + "')").ToListAsync();
-        }
+        //[HttpGet("GetFinalAuditStatus")]
+        //public async Task<ActionResult<IEnumerable<FinalAuditStatusForTrafficLights>>> FinalAuditStatusForTrafficLights(string Floor,string fromTime, string toTime)
+        //{
+        //    return await _context.FinalAuditStatusForTrafficLights.FromSqlRaw("Select * from fn_AuditStatus_for_Traffic_Lights('" +  Floor + "','" + fromTime + "','" + toTime + "')").ToListAsync();
+        //}
 
 
 

@@ -35,6 +35,8 @@ namespace WebAPI_NFK_SQMS.DB_Context
         public DbQuery<vw_Style_Master_with_layout> vw_Style_Master_with_layout { get; set; }
         public DbQuery<vw_Offline_for_FinalAudit> vw_Offline_for_FinalAudit { get; set; }
         public DbQuery<vw_Final_Audit_Status_For_Traffic_Lights> vw_Final_Audit_Status_For_Traffic_Lights { get; set; }
+        public DbQuery<vw_EndLineQC_Audit_Status_For_Traffic_Lights> vw_EndLineQC_Audit_Status_For_Traffic_Lights { get; set; }
+
         
 
 

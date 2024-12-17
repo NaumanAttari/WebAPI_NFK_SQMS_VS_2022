@@ -39,7 +39,7 @@ namespace WebAPI_NFK_SQMS.DB_Context
 
         
 
-
+        public DbSet<tblSQMS_Audit_Measurement_Images> tblSQMS_Audit_Measurement_Images { get; set; }
         public DbSet<tblSQMS_Audit_Spec_Images> tblSQMS_Audit_Spec_Images { get; set; }
         public DbSet<tblSQMS_Master_AQL_Lot_Size> tblSQMS_Master_AQL_Lot_Size { get; set; }
         public DbSet<tblSQMS_FinalCheck_Info> tblSQMS_FinalCheck_Info { get; set; }

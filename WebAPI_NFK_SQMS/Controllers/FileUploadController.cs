@@ -60,5 +60,26 @@ namespace WebAPI_NFK_SQMS.Controllers
             }
         }
 
+        [HttpPost("UploadMeasurementImages")]
+        public ActionResult UploadMeasurementImages([FromForm] FileModel file)
+        {
+            try
+            {
+                //Directory.GetCurrentDirectory()
+                string path = Path.Combine("E:", "measurementimages", file.FileName);
+                //string path = Path.Combine("D:", "specimages", file.FileName);
+
+                using (Stream stream = new FileStream(path, FileMode.Create))
+                {
+                    file.FormFile.CopyTo(stream);
+                }
+                return Ok(path);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
     }
 }

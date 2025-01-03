@@ -33,10 +33,12 @@ namespace WebAPI_NFK_SQMS.Controllers
 
 
         // GET: api/Cutting/CB-10001
+        //[HttpGet("{LocationId}/{CBNO}")]
         [HttpGet("{CBNO}")]
         public async Task<ActionResult<IEnumerable<vw_CB_Detail>>> GetLineInfoDetailByID(string CBNo)
         {
             var LineInfo = await _context.vw_CB_Detail.Where(a => a.CBNo == CBNo).ToListAsync();
+            //var LineInfo = await _context.vw_CB_Detail.Where(a => a.CBNo == CBNo & a.LocationId == LocationId).ToListAsync();
 
             if (LineInfo == null)
             {

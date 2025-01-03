@@ -17,6 +17,7 @@ namespace DataAccessLayer.Models
         public string Size { get; set; }
         public string BundleNo { get; set; }
         public string BundleQty { get; set; }
+        public string LocationId { get; set; }
 
     }
 }

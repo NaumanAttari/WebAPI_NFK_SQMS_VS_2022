@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataAccessLayer.Models.MasterInfo
@@ -21,5 +22,7 @@ namespace DataAccessLayer.Models.MasterInfo
         public string Size { get; set; }
         public string BundleNo { get; set; }
         public string BundleQty { get; set; }
+        public bool? InLine { get; set; }
+        public DateTime? InLineAt { get; set; }
     }
 }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DataAccessLayer.Models.TrafficLights;
 using System.Reflection.Emit;
+using DataAccessLayer.Models.TrafficLights.Table_Valued_Functions;
 
 
 namespace WebAPI_NFK_SQMS.DB_Context
@@ -88,7 +89,8 @@ namespace WebAPI_NFK_SQMS.DB_Context
         public DbSet<tblSQMS_Master_Audits> tblSQMS_Master_Audits { get; set; }
         public DbSet<FinalAuditStatusForTrafficLights> FinalAuditStatusForTrafficLights { get; set; }
         public DbSet<FinalAuditNextRun> FinalAuditNextRun { get; set; }
-
+        public DbSet<fn_Final_Audit_Status_For_Traffic_Lights> fn_Final_Audit_Status_For_Traffic_Lights { get; set; }
+        public DbSet<FinalAuditPeriodforTrafficLights> FinalAuditPeriodforTrafficLights { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

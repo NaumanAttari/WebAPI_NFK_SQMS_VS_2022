@@ -1,13 +1,14 @@
-﻿using System;
+﻿using DataAccessLayer.Models.MasterInfo;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Mvc;
 using WebAPI_NFK_SQMS.DB_Context;
-using DataAccessLayer.Models.MasterInfo;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Http;
 
 namespace WebAPI_NFK_SQMS.Controllers
 {
@@ -16,7 +17,7 @@ namespace WebAPI_NFK_SQMS.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
-    public class BundleCardController : ControllerBase 
+    public class BundleCardController : ControllerBase
     {
         private readonly ApplicationDBContext _context;
 
@@ -39,8 +40,8 @@ namespace WebAPI_NFK_SQMS.Controllers
         {
             try
             {
-                 
-                 _context.tblSQMS_EndLine_Bundle_Cards.Add(tblSQMSBundleCard);
+
+                _context.tblSQMS_EndLine_Bundle_Cards.Add(tblSQMSBundleCard);
                 await _context.SaveChangesAsync();
 
                 return CreatedAtAction("GetBundleCard", new { id = tblSQMSBundleCard.Id }, tblSQMSBundleCard);
@@ -138,6 +139,49 @@ namespace WebAPI_NFK_SQMS.Controllers
         {
             return _context.tblSQMS_EndLine_Bundle_Cards.Any(e => e.Id == pId);
         }
+
+
+        //api/BundleCard/MarkInLineInBundleCard 
+        [HttpPost("MarkInLineInBundleCard")]
+        public async Task<IActionResult> MarkInLineInBundleCard([FromQuery] string pCBNo, string pSize, string pBundleNo, string pFloor, string pProdLineNo)
+        {
+            var CBDet = await _context.tblSQMS_EndLine_Bundle_Cards.Where(a => a.CBNo == pCBNo && a.Size == pSize && a.BundleNo == pBundleNo && a.Floor == pFloor && a.ProdLineNo == pProdLineNo).ToListAsync();
+
+            if (CBDet[0].InLine == null)
+            {
+                CBDet[0].InLine = true;
+                CBDet[0].InLineAt = DateTime.Now;
+                _context.Entry(CBDet[0]).State = EntityState.Modified;
+            }
+
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                
+                //string strQry = "";
+                //strQry = $"Update tblSQMS_EndLine_Bundle_Cards " +
+                //         $"    Set InLine = 1, " +
+                //         $"        InLineAt = getdate() " +
+                //         $" Where " +
+                //         $"      CBNo = '{pCBNo}' " +
+                //         $"  And Size = '{pSize}' " +
+                //         $"  And BundleNo = '{pBundleNo}' " +
+                //         $"  And Floor = '{pFloor}' " +
+                //         $"  And ProdLineNo = '{pProdLineNo}' " +
+                //         $"  And InLineAt is null ";
+
+                //var i = _context.Database.ExecuteSqlRaw(strQry);
+
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return NotFound();
+            }
+
+            return CreatedAtAction("GetBundleCard", CBDet[0]);
+        }
+
 
 
 

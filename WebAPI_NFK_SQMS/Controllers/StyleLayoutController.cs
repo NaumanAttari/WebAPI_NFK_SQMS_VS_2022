@@ -76,8 +76,22 @@ namespace WebAPI_NFK_SQMS.Controllers
         }
 
         // GET: api/StyleLayout/5
-        [HttpGet("{pStyleNo}")]
-        public async Task<ActionResult<IEnumerable<tblSQMS_Master_Style_Layout>>> GetStyle_Layout(string pStyleNo)
+        //[HttpGet("{pStyleNo}")]
+        //public async Task<ActionResult<IEnumerable<tblSQMS_Master_Style_Layout>>> GetStyle_Layout(string pStyleNo)
+        //{
+        //    var styleLayout = await _context.tblSQMS_Master_Style_Layout.Where(a => a.StyleNo == pStyleNo).ToListAsync();
+
+        //    if (styleLayout == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return styleLayout;
+        //}
+
+
+        //[HttpGet("a/{pStyleNo}")]
+        public async Task<ActionResult<IEnumerable<tblSQMS_Master_Style_Layout>>> GetStyle_LayoutNew([FromQuery] string pStyleNo)
         {
             var styleLayout = await _context.tblSQMS_Master_Style_Layout.Where(a => a.StyleNo == pStyleNo).ToListAsync();
 
@@ -88,6 +102,11 @@ namespace WebAPI_NFK_SQMS.Controllers
 
             return styleLayout;
         }
+
+
+
+
+
 
         // PUT: api/StyleLayout/5
         [HttpPut("{pId}")]

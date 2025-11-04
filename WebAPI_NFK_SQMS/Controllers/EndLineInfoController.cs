@@ -123,6 +123,7 @@ namespace WebAPI_NFK_SQMS.Controllers
                 await _context.Database.ExecuteSqlRawAsync("exec sp_check " + pId  + "," +
                     (tblSQMS_Endline_Infox.FreshPCS.Equals("") ? "null" : "'" + tblSQMS_Endline_Infox.FreshPCS + "'") + "," +
                     (tblSQMS_Endline_Infox.RejectedPCS.Equals("") ? "null" : "'" + tblSQMS_Endline_Infox.RejectedPCS + "'") + "," +
+                    (tblSQMS_Endline_Infox.AlterPCS.Equals("") ? "null" : "'" + tblSQMS_Endline_Infox.AlterPCS + "'") + "," +
                     (tblSQMS_Endline_Infox.FaultyPCS.Equals("") ? "null" : "'" + tblSQMS_Endline_Infox.FaultyPCS + "'") + "," +
                     (tblSQMS_Endline_Infox.PCSOnRework.Equals("") ? "null" : "'" + tblSQMS_Endline_Infox.PCSOnRework + "'") + "," +
                     (tblSQMS_Endline_Infox.FreshPCSOnRework.Equals("") ? "null" : "'" + tblSQMS_Endline_Infox.FreshPCSOnRework + "'") + "," +

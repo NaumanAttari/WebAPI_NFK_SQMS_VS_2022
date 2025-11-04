@@ -145,10 +145,12 @@ namespace WebAPI_NFK_SQMS.Controllers
         [HttpPost("MarkInLineInBundleCard")]
         public async Task<IActionResult> MarkInLineInBundleCard([FromQuery] string pCBNo, string pSize, string pBundleNo, string pFloor, string pProdLineNo)
         {
-            var CBDet = await _context.tblSQMS_EndLine_Bundle_Cards.Where(a => a.CBNo == pCBNo && a.Size == pSize && a.BundleNo == pBundleNo && a.Floor == pFloor && a.ProdLineNo == pProdLineNo).ToListAsync();
+            //var CBDet = await _context.tblSQMS_EndLine_Bundle_Cards.Where(a => a.CBNo == pCBNo && a.Size == pSize && a.BundleNo == pBundleNo && a.Floor == pFloor && a.ProdLineNo == pProdLineNo).ToListAsync();
+            var CBDet = await _context.tblSQMS_EndLine_Bundle_Cards.Where(a => a.CBNo == pCBNo && a.Size == pSize && a.BundleNo == pBundleNo && a.Floor == pFloor).ToListAsync();
 
             if (CBDet[0].InLine == null)
             {
+                CBDet[0].ProdLineNo = pProdLineNo;
                 CBDet[0].InLine = true;
                 CBDet[0].InLineAt = DateTime.Now;
                 _context.Entry(CBDet[0]).State = EntityState.Modified;

@@ -29,6 +29,7 @@ namespace DataAccessLayer.Models.Transactions
         public string FreshPCS { get; set; }
 
         public string RejectedPCS { get; set; }
+        public string AlterPCS { get; set; }
 
         public string FaultyPCS { get; set; }
 

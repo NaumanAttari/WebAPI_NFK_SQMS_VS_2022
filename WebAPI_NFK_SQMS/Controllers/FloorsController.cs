@@ -15,6 +15,7 @@ namespace WebAPI_NFK_SQMS.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
+
     public class FloorsController : ControllerBase
     {
         private readonly ApplicationDBContext _context;

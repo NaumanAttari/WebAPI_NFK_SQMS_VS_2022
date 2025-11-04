@@ -20,6 +20,8 @@ namespace DataAccessLayer.Models.Transactions
         public string BundleNo { get; set; }
         public string EndLineFaults { get; set; }
         public string FaultyPCS { get; set; }
+        public string RejectedPCS { get; set; }
+        public string AlterPCS { get; set; }
         public string BundleStatus { get; set; }
          
 

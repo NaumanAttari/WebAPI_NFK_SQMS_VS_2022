@@ -19,6 +19,7 @@ namespace DataAccessLayer.Models
         public string BundleNo { get; set; }
         public string BundleQty { get; set; }
         public bool BundleClosed { get; set; }
+        public bool FinalCheckBundleClosed { get; set; }
         public string FreshPCS { get; set; }
         public string FaultyPCS { get; set; }
         public string FaultyPCSOnRework { get; set; }

@@ -77,6 +77,10 @@ namespace WebAPI_NFK_SQMS.DB_Context
 
         public DbSet<tblSQMS_EndLine_Defects> tblSQMS_EndLine_Defects { get; set; }
 
+        public DbSet<tblSQMS_FinalCheck_BundleWise_Info> tblSQMS_FinalCheck_BundleWise_Info { get; set; }
+
+        public DbSet<tblSQMS_FinalCheck_BundleWise_Defects> tblSQMS_FinalCheck_BundleWise_Defects { get; set; }
+
         public DbSet<HighChart> HighChart { get; set; }
 
         public DbSet<rptDefectAnalysis> DefectAnalysis { get; set; }

@@ -150,6 +150,44 @@ namespace WebAPI_NFK_SQMS.Controllers
         }
 
 
+        // PUT: api/EndlineInfo/updateRecoverPcs/5
+        [HttpPut("updateRecoverPcs/{pId}")]
+        public async Task<IActionResult> PutFinalCheck_BundleWiseInfoUpdateRecoverPcs(long pId, tblSQMS_FinalCheck_BundleWise_Info tblSQMS_FinalCheck_BundleWise_Infox)
+        {
+            if (pId != tblSQMS_FinalCheck_BundleWise_Infox.Id)
+            {
+                return BadRequest();
+            }
+
+            bool BundleClosed = tblSQMS_FinalCheck_BundleWise_Infox.BundleClosed;
+
+            try
+            {
+
+                await _context.Database.ExecuteSqlRawAsync("exec sp_Update_FinalCheck_BundleWise_RecoverPcs " + pId + "," +
+                    (tblSQMS_FinalCheck_BundleWise_Infox.RecoverAlterPCS.Equals("") ? "null" : "'" + tblSQMS_FinalCheck_BundleWise_Infox.RecoverAlterPCS + "'") + "," +
+                    (tblSQMS_FinalCheck_BundleWise_Infox.RecoverRejectPCS.Equals("") ? "null" : "'" + tblSQMS_FinalCheck_BundleWise_Infox.RecoverRejectPCS + "'")   
+                    + "");
+
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!FinalCheck_BundleWiseInfoExisit(pId))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+
+            }
+
+            return CreatedAtAction("GetFinalCheck_BundleWiseInfo", tblSQMS_FinalCheck_BundleWise_Infox);
+        }
+
+
+
         private bool FinalCheck_BundleWiseInfoExisit(long pId)
         {
             return _context.tblSQMS_FinalCheck_BundleWise_Info.Any(e => e.Id == pId);

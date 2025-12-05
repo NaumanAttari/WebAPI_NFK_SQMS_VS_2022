@@ -40,7 +40,8 @@ namespace DataAccessLayer.Models.Transactions
         public string RejectedPCSOnRework { get; set; }
 
         public string FaultyPCSOnRework { get; set; }
-
+        public string RecoverAlterPCS { get; set; }
+        public string RecoverRejectPCS { get; set; }
         public bool BundleClosed { get; set; }
 
 

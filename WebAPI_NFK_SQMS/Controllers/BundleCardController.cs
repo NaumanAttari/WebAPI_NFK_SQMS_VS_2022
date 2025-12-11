@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Models.MasterInfo;
+using DataAccessLayer.Models.Transactions;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -186,7 +187,23 @@ namespace WebAPI_NFK_SQMS.Controllers
 
 
 
+        // PUT: api/BundleCard/deleteBundleCard?CBNo_Size_BundleNo=Cb-76896M(32/34)44
+        [HttpGet("deleteBundleCard")]
+        public async Task<IActionResult> PutDeleteBundleCard([FromQuery]string CBNo_Size_BundleNo)
+        {
+            try
+            {
+                await _context.Database.ExecuteSqlRawAsync("exec sp_Delete_EndLine_Bundle_Cards '" + CBNo_Size_BundleNo + "'");
+                return Ok();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                return BadRequest(ex.Message);
+              //throw;
+            }
 
+            //return CreatedAtAction("GetFinalCheck_BundleWiseInfo", tblSQMS_FinalCheck_BundleWise_Infox);
+        }
 
 
     }
